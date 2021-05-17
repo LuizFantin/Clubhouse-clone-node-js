@@ -1,22 +1,20 @@
-# ClubHouse Clone Template - Semana JS Expert 4.0
+# ClubHouse Clone - Semana JS Expert 4.0
 
-Seja bem vindo(a) à quarta Semana Javascript Expert.Este é o código inicial para iniciar nossa jornada.
-
-Marque esse projeto com uma estrela 🌟
+Node.js App that's implements main features of ClubHouse.
 
 ## Preview
 
 ### Página de Login
 
-<img src="./frontend/assets/printscreen/clubhouse-login.PNG" width="300" alt="Login" />
+<img src="./app/assets/printscreen/clubhouse-login.PNG" width="300" alt="Login" />
 
 ### Página de Salas
 
-<img src="./frontend/assets/printscreen/clubhouse-home.PNG" width="300" alt="Home" />
+<img src="./app/assets/printscreen/clubhouse-home.PNG" width="300" alt="Home" />
 
 ### Página de Sala
 
-<img src="./frontend/assets/printscreen/clubhouse-room.PNG" width="300" alt="Room" />
+<img src="./app/assets/printscreen/clubhouse-room.PNG" width="300" alt="Room" />
 
 ## Checklist Features
 
