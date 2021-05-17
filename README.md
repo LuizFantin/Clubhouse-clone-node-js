@@ -8,22 +8,22 @@ Marque esse projeto com uma estrela 🌟
 
 ### Página de Login
 
-<img src="./assets/printscreen/clubhouse-login.PNG" width="300" alt="Login" />
+<img src="./frontend/assets/printscreen/clubhouse-login.PNG" width="300" alt="Login" />
 
 ### Página de Salas
 
-<img src="./assets/printscreen/clubhouse-home.PNG" width="300" alt="Home" />
+<img src="./frontend/assets/printscreen/clubhouse-home.PNG" width="300" alt="Home" />
 
 ### Página de Sala
 
-<img src="./assets/printscreen/clubhouse-room.PNG" width="300" alt="Room" />
+<img src="./frontend/assets/printscreen/clubhouse-room.PNG" width="300" alt="Room" />
 
 ## Checklist Features
 
-- [ ] O app deve funcionar na Web, Android e IOS
+- [] O app deve funcionar na Web, Android e IOS
 - Login
-  - [ ] Deve ter login com GitHub
-    - [ ] Se houver dados do usuario em localStorage deve ir para lobby direto
+  - [] Deve ter login com GitHub
+    - [] Se houver dados do usuario em localStorage deve ir para lobby direto
 
 - Lobby
   - [ ] Se não houver dados do usuario em localStorage deve voltar para login
