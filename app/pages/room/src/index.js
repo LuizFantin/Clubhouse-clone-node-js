@@ -1,26 +1,30 @@
 import { constants } from "../../_shared/constants.js";
+import RoomController from "./controller.js";
 import RoomSocketBuilder from "./util/roomSocket.js";
+import View from "./view.js";
+
+const urlParams = new URLSearchParams(window.location.search);
+const keys = ['id', 'topic'];
+const urlData = keys.map((key) => [key, urlParams.get(key)]);
+
+const user = {
+    img: 'https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/bear_russian_animal_avatar-512.png',
+    username: 'LuizFantin ' + Date.now()
+}
+
+const roomInfo = {
+    room: {...Object.fromEntries(urlData)},
+    user
+}
 
 const socketBuilder = new RoomSocketBuilder({
     socketUrl: constants.socketUrl,
     namespace: constants.socketNamespaces.room
 });
 
-const socket = socketBuilder
-    .setOnUserConnected((user)=> console.log('user arrives', user))
-    .setOnUserDisconnected((user)=> console.log('user disband', user))
-    .setOnRoomUpdated((room) => console.log('room list', room))
-    .build();
-
-const room = {
-    id: '0001',
-    topic: 'JS Expert do Luiz'
-};
-
-const user = {
-    img: 'https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/bear_russian_animal_avatar-512.png',
-    username: 'LuizFantin' + Date.now()
+const dependecies = {
+    view: View,
+    socketBuilder,
+    roomInfo
 }
-
-
-socket.emit(constants.events.JOIN_ROOM, {user, room});
+await RoomController.initialize(dependecies)

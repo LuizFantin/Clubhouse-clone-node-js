@@ -25,28 +25,28 @@ Node.js App that's implements main features of ClubHouse.
 
 - Lobby
   - [ ] Se não houver dados do usuario em localStorage deve voltar para login
-  - [ ] Mostra todas as salas ativas
+  - [x] Mostra todas as salas ativas
   - [ ] Atualiza salas em realtime
-  - [ ] Pode criar uma sala sem topico
-  - [ ] Pode criar uma sala com topico
-  - [ ] Pode acessar salas ativas
+  - [x] Pode criar uma sala sem topico
+  - [x] Pode criar uma sala com topico
+  - [x] Pode acessar salas ativas
 - Room
   - [ ] Se não houver dados do usuario em localStorage deve voltar para login
   - [x] Cria uma sala com um usuário dono
   - [x] Todos usuários futuros entram com perfil de attendees
   - [ ] Notifica Lobby sobre atualizações na sala
-  - [ ] Lista usuarios com perfis de speakers e attendees
-  - [ ] Se o dono da sala desconectar, será removida
+  - [x] Lista usuarios com perfis de speakers e attendees
+  - [x] Se o dono da sala desconectar, será removida
   - Users
     - Speaker
       - [ ] Recebe notificação de attendees para se tornarem speakers
-      - [ ] Atualizam a tela o upgrade de attendee para speaker
+      - [x] Atualizam a tela o upgrade de attendee para speaker
       - [ ] Poderá deixar seu microfone mudo
       - Se dono da sala
-        - [ ] Pode aprovar attendees a virarem speakers
+        - [x] Pode aprovar attendees a virarem speakers
         - Ao se desconectar
-          - [ ] Promove o speaker mais velho da sala
-          - [ ] Se não houver speaker promove o attendee mais velho da sala
+          - [x] Promove o speaker mais velho da sala
+          - [x] Se não houver speaker promove o attendee mais velho da sala
     - Attendee
       - [ ] Pode ouvir speakers ativos
       - [ ] Pode pedir upgrade de perfil ao dono da sala
