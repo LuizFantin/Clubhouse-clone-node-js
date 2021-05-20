@@ -3,9 +3,10 @@ import UserStream from "./entities/userStream.js";
 export default class RoomService {
     constructor({media}) {
         this.media = media;
-        this.currentPeer = {}
-        this.currentUser = {}
-        this.currentStream = {}
+        this.currentPeer = {};
+        this.currentUser = {};
+        this.currentStream = {};
+        this.isAudioActive = true;
 
         this.peers = new Map();
     }
@@ -25,7 +26,7 @@ export default class RoomService {
         return this.currentUser;
     }
 
-    upgradeUserPermission(user) {
+    async upgradeUserPermission(user) {
         if(!user.isSpeaker) return;
 
         const isCurrentUser = user.id === this.currentUser.id;
@@ -33,6 +34,7 @@ export default class RoomService {
 
         this.currentUser = user;
 
+        return this._reconnectAsSpeaker();
     }
 
     updateCurrentUserProfile(users) {
@@ -70,5 +72,40 @@ export default class RoomService {
 
         const stream = await this.getCurrentStream();
         this.currentPeer.call(user.peerId, stream);
+    }
+
+    _reconnectPeers(stream) {
+        for(const peer of this.peers.values()) {
+            const peerId = peer.call.peer;
+            peer.call.close();
+            console.log('re-calling', peerId);
+
+            this.currentPeer.call(peerId, stream);
+        }
+    }
+
+    async _reconnectAsSpeaker() {
+        return this.switchAudioStreamSource({realAudio: true});
+    }
+
+    async switchAudioStreamSource({realAudio}) {
+        const userAudio = realAudio 
+            ? await this.media.getUserAudio()
+            : this.media.createMediaStreamFake();
+
+        this.currentStream = new UserStream({
+            isFake: realAudio,
+            stream: userAudio
+        });
+
+        this.currentUser.isSpeaker = realAudio;
+
+        // Precisa encerrar as chamadas e ligar de novo.
+        this._reconnectPeers(this.currentStream.stream);
+    }
+
+    async toggleAudioActivation() {
+        this.isAudioActive = !this.isAudioActive;
+        this.switchAudioStreamSource({realAudio: this.isAudioActive});
     }
 }

@@ -41,4 +41,6 @@ const dependecies = {
     peerBuilder,
     roomService
 }
-await RoomController.initialize(dependecies)
+await RoomController.initialize(dependecies).catch(error => {
+    alert(error.message);
+});
