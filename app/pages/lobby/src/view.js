@@ -1,3 +1,4 @@
+import { constants } from "../../_shared/constants.js";
 import Room from "./entities/room.js";
 import getTemplate from "./templates/lobbyItem.js";
 
@@ -29,6 +30,10 @@ export default class View {
             id: uniqueId, 
             topic: topic
         });
+    }
+
+    static redirectToLogin() {
+        window.location = constants.pages.login;
     }
 
     static configureCreateRoomButton() {

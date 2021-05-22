@@ -1,11 +1,13 @@
 import { constants } from "../../_shared/constants.js";
+import UserDb from "../../_shared/userDb.js";
 import LobbyController from "./controller.js";
 import LobbySocketBuilder from "./util/lobbySocketBuilder.js";
 import View from "./view.js";
 
-const user = {
-    img: 'https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/bear_russian_animal_avatar-512.png',
-    username: 'LuizFantin ' + Date.now()
+
+const user = UserDb.get();
+if(!Object.keys(user).length) {
+    View.redirectToLogin();
 }
 
 const socketBuilder = new LobbySocketBuilder({
