@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npx http-server .",
+    "dev": "npx http-server .",
+    "start": "npx http-server --cors -p $PORT .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {

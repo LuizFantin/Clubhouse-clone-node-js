@@ -1,16 +1,25 @@
 export const constants = {
-    socketUrl: 'http://localhost:3000',
+    // PROD
+    socketUrl: 'https://clubhouse-socket-server.herokuapp.com',
+    // DEV
+    // socketUrl: 'http://localhost:3000',
     socketNamespaces: {
         room: 'room',
         lobby: 'lobby'
     },
     peerConfig: Object.values({
         id: undefined,
-        // config: {
-        //     port: 9000,
-        //     host: 'localhost',
-        //     path: '/'
-        // }
+        config: {
+            // PROD
+            host: "clubhouse-peerjs-server.herokuapp.com",
+            secure: true,
+            path: '/',
+
+            // DEV
+            // port: 9000,
+            // host: 'localhost',
+            // path: '/'
+        }
     }),
     pages: {
         lobby: '/pages/lobby',
